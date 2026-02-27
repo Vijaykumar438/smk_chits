@@ -1,6 +1,23 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
-  <path d="M32 4L8 16v20c0 12 10 22 24 24 14-2 24-12 24-24V16L32 4z" fill="#1B5E20" stroke="#D4A843" stroke-width="2"/>
-  <circle cx="32" cy="32" r="18" fill="#D4A843"/>
-  <text x="32" y="30" text-anchor="middle" font-family="Georgia,serif" font-size="14" font-weight="bold" fill="#1B5E20">SMK</text>
-  <text x="32" y="43" text-anchor="middle" font-family="Arial,sans-serif" font-size="8" font-weight="bold" fill="#1B5E20" letter-spacing="3">CHITS</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <defs>
+    <linearGradient id="sg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#2E7D32"/>
+      <stop offset="50%" stop-color="#1B5E20"/>
+      <stop offset="100%" stop-color="#0D3B13"/>
+    </linearGradient>
+    <linearGradient id="gg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F5D77A"/>
+      <stop offset="30%" stop-color="#D4A843"/>
+      <stop offset="60%" stop-color="#E8C96A"/>
+      <stop offset="100%" stop-color="#C09533"/>
+    </linearGradient>
+  </defs>
+  <path d="M100 10L185 42V90C185 140 152 172 100 192C48 172 15 140 15 90V42L100 10Z" fill="url(#sg)"/>
+  <path d="M100 10L185 42V90C185 140 152 172 100 192C48 172 15 140 15 90V42L100 10Z" fill="none" stroke="url(#gg)" stroke-width="4"/>
+  <ellipse cx="100" cy="88" rx="58" ry="58" fill="none" stroke="url(#gg)" stroke-width="2"/>
+  <text x="72" y="95" text-anchor="middle" font-family="Georgia,serif" font-size="42" font-weight="bold" fill="url(#gg)">S</text>
+  <text x="100" y="95" text-anchor="middle" font-family="Georgia,serif" font-size="46" font-weight="bold" fill="url(#gg)">M</text>
+  <text x="130" y="95" text-anchor="middle" font-family="Georgia,serif" font-size="42" font-weight="bold" fill="url(#gg)">K</text>
+  <line x1="68" y1="105" x2="132" y2="105" stroke="url(#gg)" stroke-width="1"/>
+  <text x="100" y="122" text-anchor="middle" font-family="Trebuchet MS,sans-serif" font-size="16" font-weight="700" fill="#FFFDF5" letter-spacing="8">CHITS</text>
 </svg>
