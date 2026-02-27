@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { useAuth } from "@/contexts/AuthContext";
 import { SMKLogo, SMKLogoMark } from "@/components/smk-logo";
 import { LanguageToggle } from "@/components/language-toggle";
+import GlobalSearch from "@/components/global-search";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { ScrollArea } from "@/components/ui/scroll-area";
@@ -21,11 +22,15 @@ import {
   LogOut,
   Menu,
   X,
+  ClipboardCheck,
+  BookOpen,
 } from "lucide-react";
 
 const navItems = [
   { href: "dashboard", icon: LayoutDashboard, labelEN: "Dashboard", labelTE: "డాష్‌బోర్డ్" },
+  { href: "todays-list", icon: ClipboardCheck, labelEN: "Today's List", labelTE: "ఈ రోజు జాబితా" },
   { href: "members", icon: Users, labelEN: "Members", labelTE: "సభ్యులు" },
+  { href: "member-ledger", icon: BookOpen, labelEN: "Member Ledger", labelTE: "సభ్యుడి లెడ్జర్" },
   { href: "chit-groups", icon: Landmark, labelEN: "Chit Groups", labelTE: "చిట్ గ్రూపులు" },
   { href: "auctions", icon: Gavel, labelEN: "Auctions", labelTE: "వేలం" },
   { href: "collections", icon: IndianRupee, labelEN: "Collections", labelTE: "వసూళ్లు" },
@@ -44,6 +49,11 @@ export function AppSidebar() {
       {/* Logo */}
       <div className="flex items-center gap-2 px-4 py-5 border-b border-smk-gold/10">
         <SMKLogo size={44} />
+      </div>
+
+      {/* Search */}
+      <div className="px-3 pt-3">
+        <GlobalSearch />
       </div>
 
       {/* Navigation */}

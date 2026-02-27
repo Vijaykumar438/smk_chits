@@ -6,6 +6,7 @@ import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import CollectionChart from "@/components/collection-chart";
 import {
   IndianRupee,
   Landmark,
@@ -15,6 +16,7 @@ import {
   Plus,
   ArrowRight,
   TrendingUp,
+  ClipboardCheck,
 } from "lucide-react";
 import { collection, query, where, getDocs, Timestamp, orderBy, limit } from "firebase/firestore";
 import { db } from "@/lib/firebase";
@@ -30,6 +32,7 @@ export default function DashboardPage() {
   const [totalMembers, setTotalMembers] = useState(0);
   const [totalOutstanding, setTotalOutstanding] = useState(0);
   const [recentPayments, setRecentPayments] = useState<(Payment & { id: string })[]>([]);
+  const [chartData, setChartData] = useState<{ label: string; value: number }[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -79,6 +82,31 @@ export default function DashboardPage() {
           totalPaid += (doc.data() as Payment).amount;
         });
         setTotalOutstanding(Math.max(0, outstanding - totalPaid));
+
+        // Build 7-day chart data
+        const days: { label: string; value: number }[] = [];
+        for (let i = 6; i >= 0; i--) {
+          const d = new Date();
+          d.setDate(d.getDate() - i);
+          d.setHours(0, 0, 0, 0);
+          const nextD = new Date(d);
+          nextD.setDate(nextD.getDate() + 1);
+
+          let dayTotal = 0;
+          allPaymentsSnap.forEach((docSnap) => {
+            const p = docSnap.data() as Payment;
+            const pDate = p.paymentDate?.toDate?.();
+            if (pDate && pDate >= d && pDate < nextD) {
+              dayTotal += p.amount;
+            }
+          });
+
+          days.push({
+            label: d.toLocaleDateString(isTE ? "te-IN" : "en-IN", { weekday: "short", day: "numeric" }),
+            value: dayTotal,
+          });
+        }
+        setChartData(days);
 
         // Recent payments
         const recentSnap = await getDocs(
@@ -177,7 +205,18 @@ export default function DashboardPage() {
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
+            <Link href={`/${lang}/todays-list`}>
+              <Button
+                variant="outline"
+                className="w-full h-auto py-4 flex-col gap-2 border-green-200 bg-green-50/50 hover:bg-green-100/50"
+              >
+                <ClipboardCheck className="h-6 w-6 text-green-600" />
+                <span className="text-xs font-medium">
+                  {isTE ? "ఈ రోజు జాబితా" : "Today's List"}
+                </span>
+              </Button>
+            </Link>
             <Link href={`/${lang}/collections`}>
               <Button
                 variant="outline"
@@ -223,6 +262,16 @@ export default function DashboardPage() {
               </Button>
             </Link>
           </div>
+        </CardContent>
+      </Card>
+
+      {/* 7-Day Collection Chart */}
+      <Card className="border-smk-gold/10 shadow-sm">
+        <CardContent className="p-5">
+          <CollectionChart
+            data={chartData}
+            title={isTE ? "7 రోజుల వసూళ్ల ట్రెండ్" : "7-Day Collection Trend"}
+          />
         </CardContent>
       </Card>
 

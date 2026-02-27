@@ -75,6 +75,7 @@ export default function ChitGroupsPage() {
     reset,
     setValue,
     control,
+    watch,
     formState: { errors, isSubmitting },
   } = useForm<GroupFormData>({
     resolver: zodResolver(groupSchema) as any,
@@ -84,6 +85,17 @@ export default function ChitGroupsPage() {
       auctionDay: 1,
     },
   });
+
+  // Auto-calculate monthly installment = chitValue / memberCount
+  const watchChitValue = watch("chitValue");
+  const watchMemberCount = watch("memberCount");
+
+  useEffect(() => {
+    if (watchChitValue && watchMemberCount && watchMemberCount > 0) {
+      const calculated = Math.round(watchChitValue / watchMemberCount);
+      setValue("monthlyInstallment", calculated);
+    }
+  }, [watchChitValue, watchMemberCount, setValue]);
 
   const fetchGroups = async () => {
     try {
@@ -233,6 +245,11 @@ export default function ChitGroupsPage() {
                   <Input {...register("monthlyInstallment")} type="number" placeholder="5000" />
                   {errors.monthlyInstallment && (
                     <p className="text-xs text-red-500">{errors.monthlyInstallment.message}</p>
+                  )}
+                  {watchChitValue > 0 && watchMemberCount > 0 && (
+                    <p className="text-xs text-smk-green">
+                      {isTE ? "ఆటో:" : "Auto:"} {formatCurrency(Math.round(watchChitValue / watchMemberCount))}
+                    </p>
                   )}
                 </div>
               </div>

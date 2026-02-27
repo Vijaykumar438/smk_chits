@@ -23,7 +23,8 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
-import { Plus, Search, Edit, Trash2, MessageCircle, Phone, User } from "lucide-react";
+import { Plus, Search, Edit, Trash2, MessageCircle, Phone, User, BookOpen } from "lucide-react";
+import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -330,6 +331,16 @@ export default function MembersPage() {
                       </TableCell>
                       <TableCell className="text-right">
                         <div className="flex items-center justify-end gap-1">
+                          <Link href={`/${lang}/member-ledger?id=${member.id}`}>
+                            <Button
+                              variant="ghost"
+                              size="icon"
+                              className="h-8 w-8 text-blue-600 hover:bg-blue-50"
+                              title={isTE ? "లెడ్జర్ చూడు" : "View Ledger"}
+                            >
+                              <BookOpen className="h-4 w-4" />
+                            </Button>
+                          </Link>
                           <Button
                             variant="ghost"
                             size="icon"

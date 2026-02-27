@@ -24,7 +24,8 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
-import { Plus, IndianRupee, Receipt, Download } from "lucide-react";
+import { Plus, IndianRupee, Receipt, Download, FileDown, Share2 } from "lucide-react";
+import { downloadReceiptPDF, shareReceiptWhatsApp } from "@/components/receipt-pdf";
 import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -296,6 +297,7 @@ export default function CollectionsPage() {
                     <TableHead>{isTE ? "రకం" : "Type"}</TableHead>
                     <TableHead className="text-right">{isTE ? "మొత్తం" : "Amount"}</TableHead>
                     <TableHead>{isTE ? "తేదీ" : "Date"}</TableHead>
+                    <TableHead className="text-right">{isTE ? "చర్యలు" : "Actions"}</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
@@ -318,6 +320,54 @@ export default function CollectionsPage() {
                         {payment.paymentDate?.toDate?.()
                           ? new Date(payment.paymentDate.toDate()).toLocaleDateString("en-IN")
                           : "—"}
+                      </TableCell>
+                      <TableCell className="text-right">
+                        <div className="flex items-center justify-end gap-1">
+                          <Button
+                            variant="ghost"
+                            size="icon"
+                            className="h-8 w-8 text-smk-green hover:bg-smk-gold/10"
+                            title={isTE ? "PDF డౌన్‌లోడ్" : "Download PDF"}
+                            onClick={() => {
+                              const member = members.find(m => m.id === payment.memberId);
+                              downloadReceiptPDF({
+                                receiptNumber: payment.receiptNumber,
+                                memberName: getMemberName(payment.memberId),
+                                memberPhone: member?.phone || "",
+                                groupName: getGroupName(payment.groupId),
+                                amount: payment.amount,
+                                date: payment.paymentDate?.toDate?.() ? new Date(payment.paymentDate.toDate()).toLocaleDateString("en-IN") : new Date().toLocaleDateString("en-IN"),
+                                collectionType: payment.collectionType,
+                                notes: payment.notes || "",
+                              });
+                            }}
+                          >
+                            <FileDown className="h-4 w-4" />
+                          </Button>
+                          <Button
+                            variant="ghost"
+                            size="icon"
+                            className="h-8 w-8 text-green-600 hover:bg-green-50"
+                            title="WhatsApp"
+                            onClick={() => {
+                              const member = members.find(m => m.id === payment.memberId);
+                              if (member) {
+                                shareReceiptWhatsApp({
+                                  receiptNumber: payment.receiptNumber,
+                                  memberName: getMemberName(payment.memberId),
+                                  memberPhone: member.phone,
+                                  groupName: getGroupName(payment.groupId),
+                                  amount: payment.amount,
+                                  date: payment.paymentDate?.toDate?.() ? new Date(payment.paymentDate.toDate()).toLocaleDateString("en-IN") : new Date().toLocaleDateString("en-IN"),
+                                  collectionType: payment.collectionType,
+                                  notes: payment.notes || "",
+                                }, member.phone);
+                              }
+                            }}
+                          >
+                            <Share2 className="h-4 w-4" />
+                          </Button>
+                        </div>
                       </TableCell>
                     </TableRow>
                   ))}
