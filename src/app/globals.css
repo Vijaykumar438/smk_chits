@@ -130,7 +130,38 @@
   * {
     @apply border-border outline-ring/50;
   }
+  html {
+    font-size: 18px;
+  }
   body {
     @apply bg-background text-foreground;
+    font-size: 1rem;
+    line-height: 1.6;
   }
+}
+
+/* Bump up Tailwind's tiny text sizes so nothing feels too small */
+@layer utilities {
+  .text-xs {
+    font-size: 0.85rem !important;
+    line-height: 1.4 !important;
+  }
+  .text-sm {
+    font-size: 0.95rem !important;
+    line-height: 1.5 !important;
+  }
+  .text-2xl {
+    font-size: 1.75rem !important;
+  }
+  .text-3xl {
+    font-size: 2.1rem !important;
+  }
+}
+
+/* Bigger inputs, selects, and table cells for easier reading */
+input, select, textarea {
+  font-size: 1rem !important;
+}
+th, td {
+  font-size: 0.95rem;
 }
