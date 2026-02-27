@@ -1,0 +1,19 @@
+{
+  "name": "SMK Chits - Chit Fund Manager",
+  "short_name": "SMK Chits",
+  "description": "Chit fund management app by Seethala Murali Krishna",
+  "start_url": "/en/dashboard",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#1B5E20",
+  "background_color": "#FFFDF5",
+  "categories": ["finance", "business"],
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

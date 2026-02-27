@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <path d="M32 4L8 16v20c0 12 10 22 24 24 14-2 24-12 24-24V16L32 4z" fill="#1B5E20" stroke="#D4A843" stroke-width="2"/>
+  <circle cx="32" cy="32" r="18" fill="#D4A843"/>
+  <text x="32" y="30" text-anchor="middle" font-family="Georgia,serif" font-size="14" font-weight="bold" fill="#1B5E20">SMK</text>
+  <text x="32" y="43" text-anchor="middle" font-family="Arial,sans-serif" font-size="8" font-weight="bold" fill="#1B5E20" letter-spacing="3">CHITS</text>
+</svg>
