@@ -109,20 +109,20 @@ export function SMKLogo({ size = 48, className = "", showText = true }: SMKLogoP
         <path d="M100 24L104 30L100 36L96 30Z" fill="url(#goldGrad)" opacity="0.8" />
 
         {/* Decorative separator line above CHITS */}
-        <line x1="68" y1="103" x2="132" y2="103" stroke="url(#goldGrad)" strokeWidth="0.8" />
+        <line x1="60" y1="108" x2="140" y2="108" stroke="url(#goldGrad)" strokeWidth="1" />
         {/* Small diamond ornaments on the separator */}
-        <circle cx="68" cy="103" r="1.5" fill="url(#goldGrad)" />
-        <circle cx="132" cy="103" r="1.5" fill="url(#goldGrad)" />
-        <path d="M100 100L103 103L100 106L97 103Z" fill="url(#goldGrad)" />
+        <circle cx="60" cy="108" r="2" fill="url(#goldGrad)" />
+        <circle cx="140" cy="108" r="2" fill="url(#goldGrad)" />
+        <path d="M100 105L103.5 108L100 111L96.5 108Z" fill="url(#goldGrad)" />
 
         {/* "S" Monogram - left */}
         <text
-          x="72"
-          y="92"
+          x="68"
+          y="96"
           textAnchor="middle"
           fontFamily="'Georgia', 'Palatino Linotype', 'Times New Roman', serif"
-          fontSize="40"
-          fontWeight="bold"
+          fontSize="52"
+          fontWeight="900"
           fill="url(#goldGrad)"
           filter="url(#innerShadow)"
           letterSpacing="1"
@@ -132,11 +132,11 @@ export function SMKLogo({ size = 48, className = "", showText = true }: SMKLogoP
         {/* "M" Monogram - center, slightly larger */}
         <text
           x="100"
-          y="92"
+          y="96"
           textAnchor="middle"
           fontFamily="'Georgia', 'Palatino Linotype', 'Times New Roman', serif"
-          fontSize="44"
-          fontWeight="bold"
+          fontSize="58"
+          fontWeight="900"
           fill="url(#goldGrad)"
           filter="url(#innerShadow)"
           letterSpacing="1"
@@ -145,12 +145,12 @@ export function SMKLogo({ size = 48, className = "", showText = true }: SMKLogoP
         </text>
         {/* "K" Monogram - right */}
         <text
-          x="130"
-          y="92"
+          x="134"
+          y="96"
           textAnchor="middle"
           fontFamily="'Georgia', 'Palatino Linotype', 'Times New Roman', serif"
-          fontSize="40"
-          fontWeight="bold"
+          fontSize="52"
+          fontWeight="900"
           fill="url(#goldGrad)"
           filter="url(#innerShadow)"
           letterSpacing="1"
@@ -161,13 +161,13 @@ export function SMKLogo({ size = 48, className = "", showText = true }: SMKLogoP
         {/* "CHITS" text below separator */}
         <text
           x="100"
-          y="120"
+          y="128"
           textAnchor="middle"
           fontFamily="'Trebuchet MS', 'Arial', sans-serif"
-          fontSize="16"
-          fontWeight="700"
+          fontSize="22"
+          fontWeight="900"
           fill="#FFFDF5"
-          letterSpacing="8"
+          letterSpacing="10"
         >
           CHITS
         </text>
@@ -175,25 +175,26 @@ export function SMKLogo({ size = 48, className = "", showText = true }: SMKLogoP
         {/* Telugu text at the bottom curve */}
         <text
           x="100"
-          y="144"
+          y="150"
           textAnchor="middle"
           fontFamily="'Noto Sans Telugu', sans-serif"
-          fontSize="11"
+          fontSize="14"
+          fontWeight="600"
           fill="url(#goldGrad)"
-          opacity="0.9"
+          opacity="0.95"
         >
           ఎస్ ఎం కె చిట్స్
         </text>
 
         {/* Bottom flourish ornament */}
         <path
-          d="M80 155 Q90 160 100 155 Q110 160 120 155"
+          d="M75 162 Q87 168 100 162 Q113 168 125 162"
           fill="none"
           stroke="url(#goldGrad)"
-          strokeWidth="1"
-          opacity="0.6"
+          strokeWidth="1.2"
+          opacity="0.7"
         />
-        <circle cx="100" cy="158" r="1.2" fill="url(#goldGrad)" opacity="0.6" />
+        <circle cx="100" cy="165" r="1.5" fill="url(#goldGrad)" opacity="0.7" />
 
         {/* Tiny star accents near the ring */}
         <circle cx="56" cy="58" r="1" fill="#F5D77A" opacity="0.7" />
@@ -204,19 +205,20 @@ export function SMKLogo({ size = 48, className = "", showText = true }: SMKLogoP
       {showText && (
         <div className="flex flex-col">
           <span
-            className="text-lg font-bold tracking-[0.15em]"
+            className="text-2xl font-black tracking-[0.18em] leading-tight"
             style={{
-              background: "linear-gradient(135deg, #D4A843 0%, #F5D77A 50%, #C09533 100%)",
+              background: "linear-gradient(135deg, #D4A843 0%, #F5D77A 40%, #E8C96A 60%, #C09533 100%)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
+              textShadow: "0 1px 2px rgba(0,0,0,0.1)",
             }}
           >
             SMK CHITS
           </span>
-          <span className="text-[0.65rem] text-smk-green font-semibold tracking-[0.2em] uppercase">
+          <span className="text-xs text-smk-green font-bold tracking-[0.25em] uppercase">
             Chit Fund Management
           </span>
-          <span className="text-[0.6rem] text-smk-gold/80 font-medium">
+          <span className="text-[0.7rem] text-smk-gold/90 font-semibold">
             ఎస్ ఎం కె చిట్స్
           </span>
         </div>
@@ -274,50 +276,50 @@ export function SMKLogoMark({ size = 32 }: { size?: number }) {
       <ellipse cx="100" cy="88" rx="58" ry="58" fill="none" stroke="url(#goldGradMark)" strokeWidth="1.8" />
       {/* SMK */}
       <text
-        x="72"
-        y="95"
+        x="68"
+        y="98"
         textAnchor="middle"
         fontFamily="'Georgia', serif"
-        fontSize="42"
-        fontWeight="bold"
+        fontSize="52"
+        fontWeight="900"
         fill="url(#goldGradMark)"
       >
         S
       </text>
       <text
         x="100"
-        y="95"
+        y="98"
         textAnchor="middle"
         fontFamily="'Georgia', serif"
-        fontSize="46"
-        fontWeight="bold"
+        fontSize="58"
+        fontWeight="900"
         fill="url(#goldGradMark)"
       >
         M
       </text>
       <text
-        x="130"
-        y="95"
+        x="134"
+        y="98"
         textAnchor="middle"
         fontFamily="'Georgia', serif"
-        fontSize="42"
-        fontWeight="bold"
+        fontSize="52"
+        fontWeight="900"
         fill="url(#goldGradMark)"
       >
         K
       </text>
       {/* Separator */}
-      <line x1="68" y1="105" x2="132" y2="105" stroke="url(#goldGradMark)" strokeWidth="0.8" />
+      <line x1="60" y1="110" x2="140" y2="110" stroke="url(#goldGradMark)" strokeWidth="1" />
       {/* CHITS */}
       <text
         x="100"
-        y="122"
+        y="130"
         textAnchor="middle"
         fontFamily="'Trebuchet MS', sans-serif"
-        fontSize="16"
-        fontWeight="700"
+        fontSize="22"
+        fontWeight="900"
         fill="#FFFDF5"
-        letterSpacing="8"
+        letterSpacing="10"
       >
         CHITS
       </text>

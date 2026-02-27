@@ -48,7 +48,7 @@ export function AppSidebar() {
     <div className="flex h-full flex-col">
       {/* Logo */}
       <div className="flex items-center gap-2 px-4 py-5 border-b border-smk-gold/10">
-        <SMKLogo size={44} />
+        <SMKLogo size={52} />
       </div>
 
       {/* Search */}

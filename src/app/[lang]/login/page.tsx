@@ -43,7 +43,7 @@ export default function LoginPage({ params }: { params: Promise<{ lang: string }
     return (
       <div className="min-h-screen flex items-center justify-center bg-smk-cream">
         <div className="flex flex-col items-center gap-4">
-          <SMKLogo size={64} showText={false} />
+          <SMKLogo size={80} showText={false} />
           <Loader2 className="h-6 w-6 animate-spin text-smk-green" />
         </div>
       </div>
@@ -55,7 +55,7 @@ export default function LoginPage({ params }: { params: Promise<{ lang: string }
       <Card className="w-full max-w-md shadow-2xl border-smk-gold/20">
         <CardHeader className="text-center pb-2">
           <div className="flex justify-center mb-4">
-            <SMKLogo size={80} showText={false} />
+            <SMKLogo size={100} showText={false} />
           </div>
           <CardTitle className="text-2xl font-bold text-smk-green">
             SMK CHITS
