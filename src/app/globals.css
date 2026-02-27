@@ -137,6 +137,7 @@
     @apply bg-background text-foreground;
     font-size: 1rem;
     line-height: 1.6;
+    font-weight: 600;
   }
 }
 
@@ -145,10 +146,12 @@
   .text-xs {
     font-size: 0.85rem !important;
     line-height: 1.4 !important;
+    font-weight: 600;
   }
   .text-sm {
     font-size: 0.95rem !important;
     line-height: 1.5 !important;
+    font-weight: 600;
   }
   .text-2xl {
     font-size: 1.75rem !important;
@@ -161,7 +164,21 @@
 /* Bigger inputs, selects, and table cells for easier reading */
 input, select, textarea {
   font-size: 1rem !important;
+  font-weight: 600;
 }
 th, td {
   font-size: 0.95rem;
+  font-weight: 600;
+}
+/* Make table headers extra bold */
+th {
+  font-weight: 700 !important;
+}
+/* Ensure labels, badges, and buttons stay bold */
+label, [role="button"], button {
+  font-weight: 600;
+}
+/* Muted/secondary text slightly lighter but still semi-bold */
+.text-muted-foreground {
+  font-weight: 500;
 }
