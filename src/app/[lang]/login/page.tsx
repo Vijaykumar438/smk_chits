@@ -11,7 +11,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Loader2 } from "lucide-react";
 
 export default function LoginPage({ params }: { params: Promise<{ lang: string }> }) {
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState("admin@smkchits.com");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -72,7 +72,7 @@ export default function LoginPage({ params }: { params: Promise<{ lang: string }
               <Input
                 id="email"
                 type="email"
-                placeholder="admin@smkchits.in"
+                placeholder="admin@smkchits.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
